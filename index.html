@@ -1,494 +1,1101 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Homework 26/8</title>
-    <meta name="description" content="Homework 26/8 - Past Continuous Exercise">
+  <title>Homework Eric 27/8/26 | Nam Anh Studio</title>
 
-    <link rel="icon" href="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png">
+  <meta
+    name="description"
+    content="Homework Eric 27/8/26 — English homework by Nam Anh Studio."
+  />
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-app-icon-favicon2_orig.png"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #3b82f6;
+      --navy: #0f172a;
+      --background: #020617;
+      --surface: #0f172a;
+      --surface-light: #111c31;
+      --border: rgba(148, 163, 184, 0.14);
+      --white: #ffffff;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --success: #22c55e;
+      --danger: #ef4444;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(37, 99, 235, 0.18),
+          transparent 38%
+        ),
+        var(--background);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background: rgba(2, 6, 23, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      width: min(1120px, calc(100% - 40px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .brand-logo {
+      width: 145px;
+      height: auto;
+      max-height: 38px;
+      object-fit: contain;
+    }
+
+    .header-label {
+      padding: 7px 12px;
+      border: 1px solid rgba(37, 99, 235, 0.28);
+      background: rgba(37, 99, 235, 0.09);
+      border-radius: 999px;
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 88px 20px 68px;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      left: 50%;
+      top: -220px;
+      transform: translateX(-50%);
+      background: rgba(37, 99, 235, 0.12);
+      filter: blur(100px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(850px, 100%);
+      margin: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(37, 99, 235, 0.28);
+      background: rgba(37, 99, 235, 0.08);
+      border-radius: 999px;
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 14px rgba(37, 99, 235, 0.8);
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary-hover);
+    }
+
+    .hero-description {
+      max-width: 620px;
+      margin: auto;
+      color: var(--text-secondary);
+      font-size: 17px;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      width: min(980px, calc(100% - 40px));
+      margin: auto;
+      padding-bottom: 80px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .section-number {
+      color: var(--primary-hover);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(25px, 4vw, 34px);
+      line-height: 1.15;
+    }
+
+    .section-description {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* =========================
+       EXERCISE 1
+    ========================= */
+
+    .exercise-card {
+      overflow: hidden;
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(8, 15, 30, 0.96)
+      );
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .question {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .question:last-child {
+      border-bottom: 0;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .question-number {
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(37, 99, 235, 0.22);
+      color: #93c5fd;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .question-content {
+      flex: 1;
+    }
+
+    .question-text {
+      color: #e2e8f0;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .answer {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .answer.true {
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.09);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    .answer.false {
+      color: #fca5a5;
+      background: rgba(239, 68, 68, 0.09);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .answer-icon {
+      font-size: 11px;
+    }
+
+    /* =========================
+       VOICE EXERCISES
+    ========================= */
+
+    .voice-card {
+      overflow: hidden;
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(8, 15, 30, 0.96)
+      );
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .voice-card + .voice-card {
+      margin-top: 24px;
+    }
+
+    .voice-header {
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .voice-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .voice-icon {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 11px;
+    }
+
+    .voice-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .voice-subtitle {
+      margin-top: 2px;
+      color: var(--text-secondary);
+      font-size: 12px;
+    }
+
+    .voice-badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      color: #93c5fd;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .canva-wrapper {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 100%;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .canva-wrapper iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .voice-footer {
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      border-top: 1px solid var(--border);
+    }
+
+    .voice-credit {
+      color: var(--text-secondary);
+      font-size: 12px;
+    }
+
+    .voice-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .voice-link:hover {
+      color: var(--white);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      width: min(980px, calc(100% - 40px));
+      margin: auto;
+      padding: 26px 0 35px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      border-radius: 7px;
+    }
+
+    .footer-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer-copy {
+      color: var(--text-secondary);
+      font-size: 11px;
+    }
+
+    /* =========================
+       SCROLL TOP
+    ========================= */
+
+    .scroll-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 50;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.88);
+      color: var(--white);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 700px) {
+      .header-inner {
+        width: min(100% - 28px, 1120px);
+        min-height: 68px;
+      }
+
+      .brand-logo {
+        width: 125px;
+      }
+
+      .brand-icon {
+        width: 35px;
+        height: 35px;
+      }
+
+      .header-label {
+        display: none;
+      }
+
+      .hero {
+        padding: 68px 18px 52px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      main {
+        width: min(100% - 28px, 980px);
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .section-description {
+        margin-top: 6px;
+      }
+
+      .question {
+        padding: 18px;
+      }
+
+      .question-top {
+        gap: 11px;
+      }
+
+      .question-number {
+        flex-basis: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+      }
+
+      .question-text {
+        font-size: 14px;
+      }
+
+      .voice-header {
+        padding: 17px;
+      }
+
+      .voice-badge {
+        display: none;
+      }
+
+      .voice-title {
+        font-size: 18px;
+      }
+
+      .voice-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      footer {
+        width: min(100% - 28px, 980px);
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-content {
+        animation: fadeUp 0.7s ease both;
+      }
+
+      .section {
+        animation: fadeUp 0.7s ease both;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
         }
 
-        :root {
-            --bg: #08090c;
-            --bg-soft: #0e1015;
-            --card: #111319;
-            --card-hover: #151820;
-            --border: rgba(255,255,255,.08);
-            --text: #f5f7fa;
-            --muted: #9298a5;
-            --accent: #ffffff;
-            --green: #56d69a;
-            --red: #ff6b6b;
-            --shadow: 0 20px 60px rgba(0,0,0,.35);
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, Helvetica, Arial, sans-serif;
-            background:
-                radial-gradient(circle at 50% -10%, rgba(255,255,255,.07), transparent 35%),
-                var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 6%;
-            background: rgba(8,9,12,.78);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            letter-spacing: -.02em;
-        }
-
-        .brand img {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-        }
-
-        .brand span {
-            font-size: 15px;
-        }
-
-        .nav-link {
-            color: var(--muted);
-            font-size: 14px;
-            transition: color .25s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--text);
-        }
-
-        /* HERO */
-        .hero {
-            width: min(1100px, 88%);
-            margin: 0 auto;
-            padding: 100px 0 75px;
-            text-align: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 13px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: rgba(255,255,255,.025);
-            color: var(--muted);
-            font-size: 12px;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-        }
-
-        .eyebrow-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 12px rgba(86,214,154,.7);
-        }
-
-        h1 {
-            font-size: clamp(44px, 8vw, 86px);
-            line-height: .98;
-            letter-spacing: -.065em;
-            font-weight: 750;
-            margin-bottom: 25px;
-        }
-
-        .hero p {
-            max-width: 580px;
-            margin: auto;
-            color: var(--muted);
-            font-size: 17px;
-        }
-
-        /* CONTENT */
-        main {
-            width: min(1000px, 88%);
-            margin: auto;
-            padding-bottom: 100px;
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .section-heading h2 {
-            font-size: 25px;
-            letter-spacing: -.035em;
-        }
-
-        .section-heading span {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .exercise-list {
-            display: grid;
-            gap: 14px;
-        }
-
-        /* CARDS */
-        .exercise {
-            position: relative;
-            display: grid;
-            grid-template-columns: 55px 1fr auto;
-            align-items: center;
-            gap: 20px;
-            padding: 23px 25px;
-            background: linear-gradient(
-                145deg,
-                rgba(255,255,255,.045),
-                rgba(255,255,255,.018)
-            );
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            transition:
-                transform .25s ease,
-                border-color .25s ease,
-                background .25s ease;
-        }
-
-        .exercise:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255,255,255,.15);
-            background: var(--card-hover);
-        }
-
-        .number {
-            width: 43px;
-            height: 43px;
-            display: grid;
-            place-items: center;
-            border-radius: 12px;
-            background: rgba(255,255,255,.06);
-            border: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .question {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .answer {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .answer strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .result {
-            min-width: 75px;
-            text-align: center;
-            padding: 8px 13px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: .08em;
-        }
-
-        .true {
-            color: var(--green);
-            background: rgba(86,214,154,.09);
-            border: 1px solid rgba(86,214,154,.18);
-        }
-
-        .false {
-            color: var(--red);
-            background: rgba(255,107,107,.08);
-            border: 1px solid rgba(255,107,107,.17);
-        }
-
-        /* SUMMARY */
-        .summary {
-            margin-top: 55px;
-            padding: 30px;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            background: rgba(255,255,255,.025);
-            text-align: center;
-        }
-
-        .summary-label {
-            color: var(--muted);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-bottom: 8px;
-        }
-
-        .summary h3 {
-            font-size: 28px;
-            letter-spacing: -.04em;
-        }
-
-        .summary p {
-            color: var(--muted);
-            margin-top: 5px;
-            font-size: 14px;
-        }
-
-        /* FOOTER */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px 6%;
-            color: #666b76;
-            font-size: 12px;
-            text-align: center;
-        }
-
-        /* MOBILE */
-        @media (max-width: 650px) {
-            .navbar {
-                height: 64px;
-                padding: 0 5%;
-            }
-
-            .brand span {
-                font-size: 14px;
-            }
-
-            .nav-link {
-                display: none;
-            }
-
-            .hero {
-                padding: 75px 0 55px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            main {
-                width: 90%;
-            }
-
-            .section-heading {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .exercise {
-                grid-template-columns: 43px 1fr;
-                gap: 14px;
-                padding: 18px;
-            }
-
-            .result {
-                grid-column: 2;
-                justify-self: start;
-                margin-top: 3px;
-            }
-
-            .question {
-                font-size: 15px;
-            }
-
-            .answer {
-                font-size: 13px;
-            }
-
-            .summary {
-                padding: 25px 18px;
-            }
-        }
-    </style>
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <a href="#" class="brand">
-            <img
-                src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png"
-                alt="Homework icon"
-            >
-            <span>Homework 26/8</span>
-        </a>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-        <a href="#exercise" class="nav-link">Exercise 1</a>
-    </nav>
+  <header class="header">
+    <div class="header-inner">
 
-    <header class="hero">
-        <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            English Homework
+      <a href="#" class="brand" aria-label="Nam Anh Studio">
+        <img
+          class="brand-icon"
+          src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png"
+          alt="Nam Anh Studio icon"
+        />
+
+        <img
+          class="brand-logo"
+          src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-logo-ch-nh_orig.png"
+          alt="Nam Anh Studio"
+        />
+      </a>
+
+      <div class="header-label">
+        ENGLISH HOMEWORK
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Homework
+      </div>
+
+      <h1>
+        Homework <span>Eric</span>
+      </h1>
+
+      <p class="hero-description">
+        27/8/26 · Past Continuous &amp; Past Simple
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <main>
+
+    <!-- =========================
+         EXERCISE 1
+    ========================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">Exercise 01</div>
+          <h2 class="section-title">True or False</h2>
         </div>
 
-        <h1>Homework<br>26/8</h1>
-
-        <p>
-            Exercise 1 — Past Continuous.
-            Read each sentence and check whether the answer is true or false.
+        <p class="section-description">
+          Check each statement.
         </p>
-    </header>
+      </div>
 
-    <main id="exercise">
 
-        <div class="section-heading">
-            <h2>Exercise 1</h2>
-            <span>6 questions</span>
+      <div class="exercise-card">
+
+        <!-- 1 -->
+        <article class="question">
+          <div class="question-top">
+
+            <div class="question-number">1</div>
+
+            <div class="question-content">
+              <p class="question-text">
+                Jim was reading an article when the doorbell rang.
+              </p>
+
+              <div class="answer true">
+                <span class="answer-icon">✓</span>
+                True
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+
+        <!-- 2 -->
+        <article class="question">
+          <div class="question-top">
+
+            <div class="question-number">2</div>
+
+            <div class="question-content">
+              <p class="question-text">
+                Ellie was ice skating when she saw Mia.
+              </p>
+
+              <div class="answer true">
+                <span class="answer-icon">✓</span>
+                True
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+
+        <!-- 3 -->
+        <article class="question">
+          <div class="question-top">
+
+            <div class="question-number">3</div>
+
+            <div class="question-content">
+              <p class="question-text">
+                Were you studying when I called?<br />
+                Yes, I was.
+              </p>
+
+              <div class="answer false">
+                <span class="answer-icon">×</span>
+                False
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+
+        <!-- 4 -->
+        <article class="question">
+          <div class="question-top">
+
+            <div class="question-number">4</div>
+
+            <div class="question-content">
+              <p class="question-text">
+                What was he doing when it started to rain?<br />
+                He was skating.
+              </p>
+
+              <div class="answer false">
+                <span class="answer-icon">×</span>
+                False
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+
+        <!-- 5 -->
+        <article class="question">
+          <div class="question-top">
+
+            <div class="question-number">5</div>
+
+            <div class="question-content">
+              <p class="question-text">
+                Was he eating dinner when Jim called?<br />
+                Yes, he was.
+              </p>
+
+              <div class="answer true">
+                <span class="answer-icon">✓</span>
+                True
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+
+        <!-- 6 -->
+        <article class="question">
+          <div class="question-top">
+
+            <div class="question-number">6</div>
+
+            <div class="question-content">
+              <p class="question-text">
+                She was studying when the bell rang.
+              </p>
+
+              <div class="answer true">
+                <span class="answer-icon">✓</span>
+                True
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXERCISE 2
+    ========================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">Exercise 02</div>
+          <h2 class="section-title">Voice 1</h2>
         </div>
 
-        <div class="exercise-list">
+        <p class="section-description">
+          Listen to the homework recording.
+        </p>
+      </div>
 
-            <article class="exercise">
-                <div class="number">01</div>
 
-                <div>
-                    <div class="question">
-                        Jim was reading an article when the doorbell rang.
-                    </div>
-                    <div class="answer">
-                        Answer: <strong>True</strong>
-                    </div>
-                </div>
+      <div class="voice-card">
 
-                <div class="result true">TRUE</div>
-            </article>
+        <div class="voice-header">
 
-            <article class="exercise">
-                <div class="number">02</div>
+          <div class="voice-title-wrapper">
 
-                <div>
-                    <div class="question">
-                        Ellie was ice skating when she saw Mia.
-                    </div>
-                    <div class="answer">
-                        Answer: <strong>True</strong>
-                    </div>
-                </div>
+            <img
+              class="voice-icon"
+              src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png"
+              alt=""
+            />
 
-                <div class="result true">TRUE</div>
-            </article>
+            <div>
+              <h3 class="voice-title">
+                Homework Voice 1
+              </h3>
 
-            <article class="exercise">
-                <div class="number">03</div>
+              <p class="voice-subtitle">
+                Eric · 27/8/26
+              </p>
+            </div>
 
-                <div>
-                    <div class="question">
-                        Were you studying when I called?
-                    </div>
-                    <div class="answer">
-                        Yes, I was.
-                    </div>
-                </div>
+          </div>
 
-                <div class="result false">FALSE</div>
-            </article>
-
-            <article class="exercise">
-                <div class="number">04</div>
-
-                <div>
-                    <div class="question">
-                        What was he doing when it started to rain?
-                    </div>
-                    <div class="answer">
-                        He was skating.
-                    </div>
-                </div>
-
-                <div class="result false">FALSE</div>
-            </article>
-
-            <article class="exercise">
-                <div class="number">05</div>
-
-                <div>
-                    <div class="question">
-                        Was he eating dinner when Jim called?
-                    </div>
-                    <div class="answer">
-                        Yes, he was.
-                    </div>
-                </div>
-
-                <div class="result true">TRUE</div>
-            </article>
-
-            <article class="exercise">
-                <div class="number">06</div>
-
-                <div>
-                    <div class="question">
-                        She was studying when the bell rang.
-                    </div>
-                    <div class="answer">
-                        Answer: <strong>True</strong>
-                    </div>
-                </div>
-
-                <div class="result true">TRUE</div>
-            </article>
+          <div class="voice-badge">
+            CANVA
+          </div>
 
         </div>
 
-        <section class="summary">
-            <div class="summary-label">Homework status</div>
-            <h3>Exercise completed</h3>
-            <p>Past Continuous · Exercise 1 · 6 questions</p>
-        </section>
 
-    </main>
+        <div class="canva-wrapper">
+          <iframe
+            loading="lazy"
+            src="https://www.canva.com/design/DAHTg6RZRc4/NVpjpJPTyQaJm51Kj3t_wg/watch?embed"
+            allowfullscreen="allowfullscreen"
+            allow="fullscreen"
+            title="Homework Voice 1 Eric 27/8/26"
+          ></iframe>
+        </div>
 
-    <footer>
-        Homework 26/8 · English Exercise
-    </footer>
+
+        <div class="voice-footer">
+
+          <span class="voice-credit">
+            Homework Voice 1 Eric 27/8/26 · Nam Anh Studio
+          </span>
+
+          <a
+            class="voice-link"
+            href="https://www.canva.com/design/DAHTg6RZRc4/NVpjpJPTyQaJm51Kj3t_wg/watch?utm_content=DAHTg6RZRc4&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in Canva
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXERCISE 3
+    ========================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">Exercise 03</div>
+          <h2 class="section-title">Voice 2</h2>
+        </div>
+
+        <p class="section-description">
+          Listen to the second recording.
+        </p>
+      </div>
+
+
+      <div class="voice-card">
+
+        <div class="voice-header">
+
+          <div class="voice-title-wrapper">
+
+            <img
+              class="voice-icon"
+              src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png"
+              alt=""
+            />
+
+            <div>
+              <h3 class="voice-title">
+                Homework Voice 2
+              </h3>
+
+              <p class="voice-subtitle">
+                Eric · 27/8/26
+              </p>
+            </div>
+
+          </div>
+
+          <div class="voice-badge">
+            CANVA
+          </div>
+
+        </div>
+
+
+        <div class="canva-wrapper">
+          <iframe
+            loading="lazy"
+            src="https://www.canva.com/design/DAHThCoLZzk/fhvZ_yMLAGJtF3WeXmpHTw/watch?embed"
+            allowfullscreen="allowfullscreen"
+            allow="fullscreen"
+            title="Homework Voice 2 Eric 27/8/26"
+          ></iframe>
+        </div>
+
+
+        <div class="voice-footer">
+
+          <span class="voice-credit">
+            Homework Voice 2 Eric 27/8/26 · Nam Anh Studio
+          </span>
+
+          <a
+            class="voice-link"
+            href="https://www.canva.com/design/DAHThCoLZzk/fhvZ_yMLAGJtF3WeXmpHTw/watch?utm_content=DAHThCoLZzk&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in Canva
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          class="footer-icon"
+          src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png"
+          alt="Nam Anh Studio"
+        />
+
+        <span class="footer-name">
+          Nam Anh Studio
+        </span>
+
+      </div>
+
+      <p class="footer-copy">
+        Votre idée - Notre création · Homework Eric 27/8/26
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Scroll to top -->
+  <button
+    class="scroll-top"
+    id="scrollTop"
+    aria-label="Scroll to top"
+    title="Back to top"
+  >
+    ↑
+  </button>
+
+
+  <script>
+    /* =========================
+       SCROLL TO TOP
+    ========================= */
+
+    const scrollTopButton = document.getElementById("scrollTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        scrollTopButton.classList.add("visible");
+      } else {
+        scrollTopButton.classList.remove("visible");
+      }
+    });
+
+    scrollTopButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+
+    /* =========================
+       IMAGE ERROR FALLBACK
+    ========================= */
+
+    document.querySelectorAll("img").forEach((image) => {
+      image.addEventListener("error", () => {
+        image.style.display = "none";
+      });
+    });
+  </script>
 
 </body>
 </html>
-```
