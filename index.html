@@ -1,767 +1,715 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Homework Eric 27/8/26 | Nam Anh Studio</title>
-
-  <!-- Favicon -->
-  <link
-    rel="icon"
-    type="image/png"
-    href="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-app-icon-favicon2_orig.png"
-  />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-light: #3b82f6;
-      --navy: #0f172a;
-      --background: #020617;
-      --surface: #0f172a;
-      --surface-light: #111c32;
-      --border: rgba(148, 163, 184, 0.14);
-      --text: #f8fafc;
-      --text-secondary: #94a3b8;
-      --success: #22c55e;
-      --danger: #ef4444;
-      --white: #ffffff;
-      --radius: 20px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(
-          circle at 50% -10%,
-          rgba(37, 99, 235, 0.16),
-          transparent 38%
-        ),
-        var(--background);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(100% - 40px, 980px);
-      margin: 0 auto;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: relative;
-      padding: 32px 0 20px;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo img {
-      width: 170px;
-      max-width: 70vw;
-      height: auto;
-      display: block;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      text-align: center;
-      padding: 58px 0 54px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 13px;
-      border: 1px solid rgba(37, 99, 235, 0.28);
-      background: rgba(37, 99, 235, 0.09);
-      color: #60a5fa;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 12px rgba(37, 99, 235, 0.8);
-    }
-
-    .hero h1 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(36px, 7vw, 64px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 span {
-      color: var(--primary-light);
-    }
-
-    .hero p {
-      color: var(--text-secondary);
-      font-size: 16px;
-      max-width: 580px;
-      margin: 0 auto;
-    }
-
-    .date {
-      display: inline-block;
-      margin-top: 20px;
-      color: #cbd5e1;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    /* =========================
-       CONTENT
-    ========================= */
-
-    main {
-      padding-bottom: 70px;
-    }
-
-    .section {
-      margin-bottom: 34px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .section-number {
-      width: 42px;
-      height: 42px;
-      flex: 0 0 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: var(--primary);
-      color: white;
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
-    }
-
-    .section-heading h2 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 25px;
-      letter-spacing: -0.025em;
-    }
-
-    /* =========================
-       TRUE / FALSE
-    ========================= */
-
-    .exercise-card {
-      background: linear-gradient(
-        145deg,
-        rgba(15, 23, 42, 0.98),
-        rgba(10, 18, 34, 0.98)
-      );
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 10px;
-      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
-    }
-
-    .question {
-      padding: 20px;
-      border-radius: 15px;
-      transition: background 0.2s ease;
-    }
-
-    .question + .question {
-      border-top: 1px solid var(--border);
-      border-radius: 0;
-    }
-
-    .question-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 29px;
-      height: 29px;
-      border-radius: 9px;
-      background: rgba(37, 99, 235, 0.12);
-      color: #60a5fa;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .question-text {
-      font-size: 16px;
-      color: #f1f5f9;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .answer {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      width: fit-content;
-      padding: 6px 11px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .answer.true {
-      color: #86efac;
-      background: rgba(34, 197, 94, 0.09);
-      border: 1px solid rgba(34, 197, 94, 0.18);
-    }
-
-    .answer.false {
-      color: #fca5a5;
-      background: rgba(239, 68, 68, 0.09);
-      border: 1px solid rgba(239, 68, 68, 0.18);
-    }
-
-    .answer-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    /* =========================
-       VOICE / CANVA
-    ========================= */
-
-    .voice-card {
-      background: linear-gradient(
-        145deg,
-        rgba(15, 23, 42, 0.98),
-        rgba(10, 18, 34, 0.98)
-      );
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
-    }
-
-    .voice-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-
-    .voice-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(37, 99, 235, 0.12);
-      color: #60a5fa;
-      font-size: 18px;
-    }
-
-    .voice-title h3 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 19px;
-    }
-
-    .voice-title p {
-      color: var(--text-secondary);
-      font-size: 12px;
-      margin-top: 2px;
-    }
-
-    .canva-wrapper {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-top: 100%;
-      padding-bottom: 0;
-      overflow: hidden;
-      border-radius: 14px;
-      background: #080d18;
-      box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16);
-    }
-
-    .canva-wrapper iframe {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      border: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .canva-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 14px;
-      color: #60a5fa;
-      font-size: 13px;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-
-    .canva-link:hover {
-      color: #93c5fd;
-    }
-
-    .canva-link span {
-      transition: transform 0.2s ease;
-    }
-
-    .canva-link:hover span {
-      transform: translateX(3px);
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 30px 0 34px;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .footer-brand {
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    .footer-brand span {
-      color: var(--primary-light);
-    }
-
-    .footer-meta {
-      text-align: right;
-      color: var(--text-secondary);
-      font-size: 12px;
-    }
-
-    .footer-meta a {
-      color: #94a3b8;
-      transition: color 0.2s ease;
-    }
-
-    .footer-meta a:hover {
-      color: #60a5fa;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(100% - 24px, 980px);
-      }
-
-      header {
-        padding-top: 24px;
-      }
-
-      .logo img {
-        width: 145px;
-      }
-
-      .hero {
-        padding: 45px 0 40px;
-      }
-
-      .hero p {
-        font-size: 14px;
-      }
-
-      .section-heading h2 {
-        font-size: 21px;
-      }
-
-      .section-number {
-        width: 38px;
-        height: 38px;
-        flex-basis: 38px;
-      }
-
-      .question {
-        padding: 17px 13px;
-      }
-
-      .question-text {
-        font-size: 15px;
-      }
-
-      .voice-card {
-        padding: 12px;
-      }
-
-      .voice-title {
-        padding: 4px 4px 0;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-meta {
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Homework 28/8 - Nam Anh Studio</title>
+
+    <link rel="icon" type="image/png"
+        href="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-app-icon-favicon2_orig.png">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.75;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.94);
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(12px);
+        }
+
+        .nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 155px;
+            height: auto;
+            display: block;
+        }
+
+        .nav-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 105px 0 80px;
+            border-bottom: 1px solid #222;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 96px);
+            line-height: 0.95;
+            letter-spacing: -0.06em;
+            font-weight: 800;
+            max-width: 900px;
+        }
+
+        .hero-line {
+            width: 70px;
+            height: 4px;
+            background: #fff;
+            margin-top: 32px;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        main {
+            padding: 30px 0 80px;
+        }
+
+        .section {
+            padding: 70px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 38px;
+        }
+
+        .section-number {
+            font-size: 13px;
+            font-weight: 700;
+            color: #777;
+            letter-spacing: 0.1em;
+        }
+
+        .section h2 {
+            font-size: clamp(30px, 5vw, 48px);
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+        /* =========================
+           EXERCISE 1
+        ========================= */
+
+        .dialogue {
+            border-left: 2px solid #fff;
+            padding-left: 28px;
+        }
+
+        .dialogue p {
+            margin-bottom: 18px;
+        }
+
+        .dialogue p:last-child {
+            margin-bottom: 0;
+        }
+
+        .speaker {
+            font-weight: 800;
+        }
+
+        .answer {
+            font-weight: 800;
+            color: #fff;
+        }
+
+        /* =========================
+           EXERCISE 2
+        ========================= */
+
+        .questions {
+            display: grid;
+            gap: 18px;
+        }
+
+        .question-card {
+            border: 1px solid #292929;
+            padding: 25px;
+            background: #050505;
+        }
+
+        .question {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           EXERCISE 3
+        ========================= */
+
+        .example {
+            border: 1px solid #333;
+            padding: 25px;
+            margin-bottom: 35px;
+            background: #080808;
+        }
+
+        .example-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .exercise-item {
+            margin-bottom: 30px;
+        }
+
+        .exercise-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exercise-source {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .sentences {
+            padding-left: 22px;
+            border-left: 1px solid #333;
+        }
+
+        .sentences p {
+            margin-bottom: 8px;
+        }
+
+        .sentences p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           EXERCISE 4
+        ========================= */
+
+        .story {
+            font-size: 18px;
+            max-width: 850px;
+        }
+
+        .story p {
+            margin-bottom: 22px;
+        }
+
+        .story p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           VOICE
+        ========================= */
+
+        .voice-wrapper {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #292929;
+            background: #050505;
+        }
+
+        .voice-frame {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 100%;
+        }
+
+        .voice-frame iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .voice-link {
+            display: inline-block;
+            margin-top: 18px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 35px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .copyright a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .updated {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+            .container {
+                width: min(100% - 28px, 1100px);
+            }
+
+            .nav {
+                min-height: 64px;
+            }
+
+            .logo img {
+                width: 125px;
+            }
+
+            .nav-title {
+                font-size: 10px;
+            }
+
+            .hero {
+                padding: 75px 0 60px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .dialogue {
+                padding-left: 18px;
+            }
+
+            .question-card {
+                padding: 20px;
+            }
+
+            .story {
+                font-size: 16px;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
-  <header>
-    <div class="container header-inner">
-      <a
-        class="logo"
-        href="https://namanhstudio.vercel.app"
-        target="_blank"
-        rel="noopener"
-        aria-label="Nam Anh Studio"
-      >
-        <img
-          src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-logo-ch-nh_orig.png"
-          alt="Nam Anh Studio"
-        />
-      </a>
-    </div>
-  </header>
+<header>
+    <div class="container nav">
+        <a class="logo" href="https://namanhstudio.vercel.app" target="_blank" rel="noopener">
+            <img
+                src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-logo-ch-nh_orig.png"
+                alt="Nam Anh Studio">
+        </a>
 
-  <!-- =========================
-       HERO
-  ========================= -->
-  <section class="hero">
+        <div class="nav-title">Homework</div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <div class="eyebrow">Nam Anh Studio</div>
+        <h1>Homework</h1>
+        <div class="hero-line"></div>
+    </div>
+</section>
+
+<main>
     <div class="container">
 
-      <div class="eyebrow">
-        English Homework
-      </div>
+        <!-- EXERCISE 1 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Exercise 1</h2>
+            </div>
 
-      <h1>
-        Homework <span>Eric</span><br />
-        27/8/26
-      </h1>
+            <div class="dialogue">
 
-      <p>
-        Review and practice exercises for today.
-        Complete each activity carefully.
-      </p>
+                <p>
+                    <span class="speaker">Ana:</span>
+                    I'm sorry I'm late! While I
+                    <span class="answer">was coming</span>
+                    to meet you, I saw an accident.
+                </p>
 
-      <div class="date">
-        Thursday, August 27, 2026
-      </div>
+                <p>
+                    <span class="speaker">Sara:</span>
+                    Really? Where?
+                </p>
+
+                <p>
+                    <span class="speaker">Ana:</span>
+                    It was in the park. I was walking in the park when I
+                    <span class="answer">saw</span>
+                    some actors on a stage. They
+                    <span class="answer">were performing</span>
+                    a play when I saw them. One of the actors was running on the stage when he
+                    <span class="answer">fell</span>
+                    off.
+                </p>
+
+                <p>
+                    <span class="speaker">Sara:</span>
+                    Oh no! Were there lots of people there?
+                </p>
+
+                <p>
+                    <span class="speaker">Ana:</span>
+                    Yes, there were. Lots of people
+                    <span class="answer">helped</span>
+                    the actor when a doctor arrived.
+                </p>
+
+                <p>
+                    <span class="speaker">Sara:</span>
+                    Wow! The doctor arrived very quickly!
+                </p>
+
+                <p>
+                    <span class="speaker">Ana:</span>
+                    Well, the doctor
+                    <span class="answer">was walking</span>
+                    in the park when he saw the accident. He
+                    <span class="answer">tryed</span>
+                    to call an ambulance when his cell phone battery ran out. I was standing near him when his phone
+                    <span class="answer">was stopping</span>
+                    working. I had my phone with me, so I called the ambulance. I was trying to call you when the ambulance
+                    <span class="answer">arrived</span>.
+                    I wanted to tell you why I was late!
+                </p>
+
+                <p>
+                    <span class="speaker">Sara:</span>
+                    It's OK. You're here now!
+                </p>
+
+            </div>
+        </section>
+
+        <!-- EXERCISE 2 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Exercise 2</h2>
+            </div>
+
+            <div class="questions">
+
+                <div class="question-card">
+                    <div class="question">
+                        1. What was Lin doing when she saw the spider?
+                    </div>
+                    <div class="answer">
+                        She drop papers
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question">
+                        2. Was Carlos playing a computer game when he put his foot in the paint?
+                    </div>
+                    <div class="answer">
+                        No, he is talking on phone
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question">
+                        3. What were Kate and Lucy doing when Lucy fell?
+                    </div>
+                    <div class="answer">
+                        They are painting the wall
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question">
+                        4. Were Haru and Kenji wearing costumes when the teacher took a photo?
+                    </div>
+                    <div class="answer">
+                        They are wearing armor
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question">
+                        5. What was Carlos doing when he put his foot in the paint?
+                    </div>
+                    <div class="answer">
+                        He is talking on phone
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXERCISE 3 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Exercise 3</h2>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Exemple</div>
+
+                <p>
+                    <strong>1. We were performing our play. I had an accident. (while)</strong>
+                </p>
+
+                <p>
+                    <em>While we were performing our play, I had an accident.</em>
+                </p>
+
+                <p>
+                    <em>I had an accident while we were performing our play.</em>
+                </p>
+            </div>
+
+            <div class="exercise-item">
+                <div class="exercise-source">
+                    <strong>2. I was walking off the stage. I fell down the steps. (when)</strong>
+                </div>
+
+                <div class="sentences">
+                    <p>When I fell down the steps, I was walking off the stage.</p>
+                    <p>I was walking off the satge when I fell down the steps.</p>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <div class="exercise-source">
+                    <strong>3. I was lying on the floor. The teacher saw me. (when)</strong>
+                </div>
+
+                <div class="sentences">
+                    <p>Wen the teacher saw me, I was lying on the floor.</p>
+                    <p>I was lying on the floor when the teacher saw me.</p>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <div class="exercise-source">
+                    <strong>4. The teacher was calling an ambulance. The school nurse helped me. (while)</strong>
+                </div>
+
+                <div class="sentences">
+                    <p>While the teacher was calling an ambulance, the school nurse helped me.</p>
+                    <p>The school nurse helped me while the teacher was calling an ambulance.</p>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <div class="exercise-source">
+                    <strong>5. The school nurse was looking at my leg. The ambulance came. (while)</strong>
+                </div>
+
+                <div class="sentences">
+                    <p>While the school nurse was looking at my leg, the ambulance came.</p>
+                    <p>The ambulance came while the school nurse was looking at my leg.</p>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <div class="exercise-source">
+                    <strong>6. My mom arrived at the hospital. I was lying in a bed. (when)</strong>
+                </div>
+
+                <div class="sentences">
+                    <p>When my mom arrived at the hospital, I was lying in a bed.</p>
+                    <p>I was lying in a bed when my mom arrived at the hospital.</p>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <div class="exercise-source">
+                    <strong>7. I was resting at home. The doorbell rang. (while)</strong>
+                </div>
+
+                <div class="sentences">
+                    <p>While I was resting at home, the doorbell rang.</p>
+                    <p>The doorbell rang while I was resting at home.</p>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <div class="exercise-source">
+                    <strong>8. My mom opened the door. My friends were standing outside. (when)</strong>
+                </div>
+
+                <div class="sentences">
+                    <p>When my mom opened the door, my friends were standing outside.</p>
+                    <p>My friends were standing outside when my mom opened the door.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- EXERCISE 4 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Exercise 4</h2>
+            </div>
+
+            <div class="story">
+
+                <p>Yesterday, it’s the birthday of my brother</p>
+
+                <p>
+                    In the morning, my little brother wake up me at 7AM, but I sleeped at 1AM
+                </p>
+
+                <p>
+                    When he cant’ wake up me, he was climbing in my bed and jumped in me. Then, while I was trying to sleep, he was sitting in my face I can’t breathe :) He forced me to get up
+                </p>
+
+                <p>
+                    When I got up to play with my little brother, he did not let me play and sent me back to bed. But when I sleeped again, he wake up me again for “watch" him play :)))))
+                </p>
+
+                <p>
+                    abc : AI viết
+                </p>
+
+            </div>
+        </section>
+
+        <!-- EXERCISE VOICE -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Exercise Voice</h2>
+            </div>
+
+            <div class="voice-wrapper">
+                <div class="voice-frame">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHTksMIwA8/TTegQ6q79ZoY9o9F7Swy1g/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen">
+                    </iframe>
+                </div>
+            </div>
+
+            <a
+                class="voice-link"
+                href="https://www.canva.com/design/DAHTksMIwA8/TTegQ6q79ZoY9o9F7Swy1g/watch?utm_content=DAHTksMIwA8&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+                target="_blank"
+                rel="noopener">
+                Homework Voice Eric 28/8
+            </a>
+
+            <span> par Nam Anh Studio</span>
+
+        </section>
 
     </div>
-  </section>
+</main>
 
-  <!-- =========================
-       MAIN
-  ========================= -->
-  <main>
-    <div class="container">
-
-      <!-- EXERCISE 1 -->
-      <section class="section">
-
-        <div class="section-heading">
-          <div class="section-number">01</div>
-          <h2>True or False</h2>
-        </div>
-
-        <div class="exercise-card">
-
-          <!-- 1 -->
-          <div class="question">
-            <div class="question-number">1</div>
-
-            <p class="question-text">
-              Jim was reading an article when the doorbell rang.
-            </p>
-
-            <div class="answer true">
-              <span class="answer-dot"></span>
-              True
-            </div>
-          </div>
-
-          <!-- 2 -->
-          <div class="question">
-            <div class="question-number">2</div>
-
-            <p class="question-text">
-              Ellie was ice skating when she saw Mia.
-            </p>
-
-            <div class="answer true">
-              <span class="answer-dot"></span>
-              True
-            </div>
-          </div>
-
-          <!-- 3 -->
-          <div class="question">
-            <div class="question-number">3</div>
-
-            <p class="question-text">
-              Were you studying when I called?<br />
-              Yes, I was.
-            </p>
-
-            <div class="answer false">
-              <span class="answer-dot"></span>
-              False
-            </div>
-          </div>
-
-          <!-- 4 -->
-          <div class="question">
-            <div class="question-number">4</div>
-
-            <p class="question-text">
-              What was he doing when it started to rain?<br />
-              He was skating.
-            </p>
-
-            <div class="answer false">
-              <span class="answer-dot"></span>
-              False
-            </div>
-          </div>
-
-          <!-- 5 -->
-          <div class="question">
-            <div class="question-number">5</div>
-
-            <p class="question-text">
-              Was he eating dinner when Jim called?<br />
-              Yes, he was.
-            </p>
-
-            <div class="answer true">
-              <span class="answer-dot"></span>
-              True
-            </div>
-          </div>
-
-          <!-- 6 -->
-          <div class="question">
-            <div class="question-number">6</div>
-
-            <p class="question-text">
-              She was studying when the bell rang.
-            </p>
-
-            <div class="answer true">
-              <span class="answer-dot"></span>
-              True
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-      <!-- EXERCISE 2 -->
-      <section class="section">
-
-        <div class="section-heading">
-          <div class="section-number">02</div>
-          <h2>Voice 1</h2>
-        </div>
-
-        <div class="voice-card">
-
-          <div class="voice-title">
-            <div class="voice-icon">🎧</div>
-
-            <div>
-              <h3>Homework Voice 1</h3>
-              <p>Eric · 27/8/26</p>
-            </div>
-          </div>
-
-          <div class="canva-wrapper">
-            <iframe
-              loading="lazy"
-              src="https://www.canva.com/design/DAHTg6RZRc4/NVpjpJPTyQaJm51Kj3t_wg/watch?embed"
-              allowfullscreen="allowfullscreen"
-              allow="fullscreen"
-              title="Homework Voice 1 Eric 27/8"
-            ></iframe>
-          </div>
-
-          <a
-            class="canva-link"
-            href="https://www.canva.com/design/DAHTg6RZRc4/NVpjpJPTyQaJm51Kj3t_wg/watch?utm_content=DAHTg6RZRc4&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
-            target="_blank"
-            rel="noopener"
-          >
-            Open Voice 1 in Canva
-            <span>→</span>
-          </a>
-
-        </div>
-      </section>
-
-
-      <!-- EXERCISE 3 -->
-      <section class="section">
-
-        <div class="section-heading">
-          <div class="section-number">03</div>
-          <h2>Voice 2</h2>
-        </div>
-
-        <div class="voice-card">
-
-          <div class="voice-title">
-            <div class="voice-icon">🎧</div>
-
-            <div>
-              <h3>Homework Voice 2</h3>
-              <p>Eric · 27/8/26</p>
-            </div>
-          </div>
-
-          <div class="canva-wrapper">
-            <iframe
-              loading="lazy"
-              src="https://www.canva.com/design/DAHThCoLZzk/fhvZ_yMLAGJtF3WeXmpHTw/watch?embed"
-              allowfullscreen="allowfullscreen"
-              allow="fullscreen"
-              title="Homework Voice 2 Eric 27/8"
-            ></iframe>
-          </div>
-
-          <a
-            class="canva-link"
-            href="https://www.canva.com/design/DAHThCoLZzk/fhvZ_yMLAGJtF3WeXmpHTw/watch?utm_content=DAHThCoLZzk&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
-            target="_blank"
-            rel="noopener"
-          >
-            Open Voice 2 in Canva
-            <span>→</span>
-          </a>
-
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-  <footer>
+<footer>
     <div class="container footer-inner">
 
-      <div class="footer-brand">
-        © <span>Nam Anh Studio</span>
-      </div>
-
-      <div class="footer-meta">
-        <div>
-          Update 27/8/26
+        <div class="copyright">
+            © 2026
+            <a href="https://namanhstudio.vercel.app" target="_blank" rel="noopener">
+                Nam Anh Studio
+            </a>
         </div>
 
-        <div>
-          <a
-            href="https://namanhstudio.vercel.app"
-            target="_blank"
-            rel="noopener"
-          >
-            naman​hstudio.vercel.app
-          </a>
+        <div class="updated">
+            Updated 28/8
         </div>
-      </div>
 
     </div>
-  </footer>
-
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-  <script>
-    // Current year fallback for future updates
-    // The homework date remains fixed at 27/8/26.
-    document.addEventListener("DOMContentLoaded", () => {
-      document.documentElement.classList.add("page-ready");
-    });
-  </script>
+</footer>
 
 </body>
 </html>
