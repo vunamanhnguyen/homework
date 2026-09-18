@@ -6,19 +6,14 @@
 
   <title>Homework Eric 27/8/26</title>
 
-  <meta
-    name="description"
-    content="Homework Eric 27/8/26 - Nam Anh Studio"
-  />
-
   <!-- Favicon -->
   <link
     rel="icon"
     type="image/png"
-    href="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-app-icon-favicon2_orig.png"
+    href="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png"
   />
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -29,16 +24,16 @@
   <style>
     :root {
       --primary: #2563eb;
-      --primary-dark: #1d4ed8;
+      --primary-light: #3b82f6;
       --navy: #0f172a;
-      --white: #ffffff;
-      --slate: #64748b;
-      --slate-light: #94a3b8;
-      --light: #f8fafc;
-      --border: #e2e8f0;
-      --card: rgba(255, 255, 255, 0.92);
-      --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-      --radius: 22px;
+      --background: #020617;
+      --surface: #0f172a;
+      --surface-light: #111c31;
+      --border: rgba(148, 163, 184, 0.16);
+      --text: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --success: #22c55e;
     }
 
     * {
@@ -52,52 +47,49 @@
     }
 
     body {
-      font-family: "Inter", sans-serif;
+      min-height: 100vh;
       background:
         radial-gradient(
-          circle at 10% 0%,
-          rgba(37, 99, 235, 0.10),
-          transparent 30%
+          circle at 50% 0%,
+          rgba(37, 99, 235, 0.14),
+          transparent 35%
         ),
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(37, 99, 235, 0.08),
-          transparent 25%
-        ),
-        var(--light);
-      color: var(--navy);
-      line-height: 1.7;
-      min-height: 100vh;
-      transition:
-        background 0.3s ease,
-        color 0.3s ease;
+        var(--background);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
     }
 
     a {
       color: inherit;
-      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* =========================
        HEADER
     ========================= */
 
-    .header {
+    header {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
       z-index: 100;
-      width: 100%;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      background: rgba(248, 250, 252, 0.82);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-      transition: 0.3s ease;
     }
 
     .header-inner {
       width: min(1100px, calc(100% - 40px));
       margin: 0 auto;
-      min-height: 72px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -107,69 +99,61 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 11px;
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--navy);
+      gap: 12px;
+      text-decoration: none;
     }
 
-    .brand-mark {
+    .brand-icon {
       width: 38px;
       height: 38px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: white;
-      font-size: 17px;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .update-badge {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--slate);
-      padding: 7px 11px;
-      background: rgba(226, 232, 240, 0.65);
-      border-radius: 999px;
-    }
-
-    .theme-toggle {
-      width: 40px;
-      height: 40px;
+      border-radius: 10px;
+      object-fit: cover;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--white);
-      color: var(--navy);
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      font-size: 17px;
-      transition: 0.2s ease;
     }
 
-    .theme-toggle:hover {
-      transform: translateY(-1px);
-      border-color: var(--primary);
-      color: var(--primary);
+    .brand-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-subtitle {
+      color: var(--text-muted);
+      font-size: 11px;
+      margin-top: -2px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
     }
 
     /* =========================
-       HERO
+       MAIN
     ========================= */
 
-    .hero {
-      width: min(1000px, calc(100% - 40px));
+    main {
+      flex: 1;
+      width: min(900px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 90px 0 65px;
+      padding: 72px 0 80px;
+    }
+
+    .hero {
       text-align: center;
+      margin-bottom: 52px;
     }
 
     .eyebrow {
@@ -177,159 +161,173 @@
       align-items: center;
       gap: 8px;
       padding: 7px 13px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(37, 99, 235, 0.28);
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.09);
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--primary);
+      background: rgba(37, 99, 235, 0.08);
+      color: #60a5fa;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .hero h1 {
       font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.05;
+      font-size: clamp(36px, 7vw, 62px);
+      line-height: 1.08;
       letter-spacing: -0.045em;
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
 
     .hero h1 span {
-      color: var(--primary);
+      color: var(--primary-light);
     }
 
     .hero-description {
-      max-width: 650px;
+      max-width: 580px;
       margin: 0 auto;
-      color: var(--slate);
-      font-size: 17px;
-    }
-
-    /* =========================
-       CONTENT
-    ========================= */
-
-    main {
-      width: min(900px, calc(100% - 40px));
-      margin: 0 auto;
-      padding-bottom: 80px;
-    }
-
-    .section {
-      margin-bottom: 35px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .section-number {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: white;
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .section-heading h2 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 25px;
-      letter-spacing: -0.02em;
-    }
-
-    .exercise-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: clamp(22px, 4vw, 38px);
-      box-shadow: var(--shadow);
-    }
-
-    /* =========================
-       QUESTIONS
-    ========================= */
-
-    .question {
-      padding: 0 0 26px;
-      margin-bottom: 26px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .question:last-child {
-      padding-bottom: 0;
-      margin-bottom: 0;
-      border-bottom: none;
-    }
-
-    .question-title {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .question-title strong {
-      color: var(--primary);
-    }
-
-    .question-title em {
-      font-weight: 600;
-    }
-
-    .answer {
-      padding: 14px 17px;
-      border-left: 4px solid var(--primary);
-      border-radius: 0 12px 12px 0;
-      background: rgba(37, 99, 235, 0.06);
-      color: var(--navy);
+      color: var(--text-muted);
       font-size: 15px;
     }
 
-    .answer-label {
-      display: block;
+    /* =========================
+       HOMEWORK CARD
+    ========================= */
+
+    .homework-card {
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(9, 17, 32, 0.96)
+      );
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.28),
+        0 0 0 1px rgba(255, 255, 255, 0.015);
+    }
+
+    .card-header {
+      padding: 25px 30px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .card-header h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .exercise-number {
+      color: var(--primary-light);
       font-size: 12px;
-      text-transform: uppercase;
+      font-weight: 700;
       letter-spacing: 0.08em;
-      color: var(--primary);
-      font-weight: 800;
-      margin-bottom: 2px;
+      text-transform: uppercase;
+    }
+
+    .content {
+      padding: 34px 30px;
+    }
+
+    .exercise-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      margin-bottom: 30px;
+      letter-spacing: -0.025em;
+    }
+
+    .question {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .question:first-of-type {
+      padding-top: 0;
+    }
+
+    .question:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .question-label {
+      color: var(--primary-light);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.045em;
+    }
+
+    .question-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .answer {
+      position: relative;
+      padding: 13px 16px;
+      border-left: 3px solid var(--primary);
+      border-radius: 0 10px 10px 0;
+      background: rgba(37, 99, 235, 0.07);
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .answer strong {
+      color: var(--text);
     }
 
     /* =========================
        VOICE
     ========================= */
 
-    .voice-card {
-      padding: 18px;
+    .voice-section {
+      margin-top: 30px;
+      padding: 30px;
+      border-top: 1px solid var(--border);
     }
 
-    .voice-wrapper {
+    .voice-heading {
+      margin-bottom: 18px;
+    }
+
+    .voice-heading h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 24px;
+      letter-spacing: -0.025em;
+      margin-bottom: 5px;
+    }
+
+    .voice-heading p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .canva-wrapper {
       position: relative;
       width: 100%;
       height: 0;
       padding-top: 56.25%;
       padding-bottom: 0;
+      margin-top: 20px;
       overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12);
-      background: #e2e8f0;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #020617;
+      box-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
     }
 
-    .voice-wrapper iframe {
+    .canva-wrapper iframe {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -343,23 +341,29 @@
     .voice-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin: 17px 4px 3px;
-      color: var(--primary);
+      gap: 7px;
+      margin-top: 14px;
+      color: #60a5fa;
+      font-size: 13px;
       font-weight: 600;
-      font-size: 14px;
-      transition: 0.2s ease;
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     .voice-link:hover {
-      color: var(--primary-dark);
+      color: #93c5fd;
       text-decoration: underline;
     }
 
-    .voice-credit {
-      margin: 0 4px;
-      color: var(--slate);
-      font-size: 13px;
+    .designed-by {
+      margin-top: 12px;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .designed-by strong {
+      color: var(--text-secondary);
+      font-weight: 600;
     }
 
     /* =========================
@@ -368,367 +372,277 @@
 
     footer {
       border-top: 1px solid var(--border);
-      padding: 30px 20px;
-      text-align: center;
-      color: var(--slate);
+      background: rgba(2, 6, 23, 0.7);
+    }
+
+    .footer-inner {
+      width: min(900px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .copyright {
+      color: var(--text-muted);
       font-size: 13px;
     }
 
-    footer a {
-      color: var(--primary);
+    .copyright a {
+      color: var(--text-secondary);
+      text-decoration: none;
       font-weight: 600;
+      transition: color 0.2s ease;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .copyright a:hover {
+      color: var(--primary-light);
     }
 
-    /* =========================
-       DARK MODE
-    ========================= */
-
-    body.dark {
-      --navy: #f8fafc;
-      --white: #111827;
-      --slate: #94a3b8;
-      --slate-light: #64748b;
-      --light: #020617;
-      --border: #1e293b;
-      --card: rgba(15, 23, 42, 0.88);
-      --shadow: 0 20px 55px rgba(0, 0, 0, 0.28);
-
-      background:
-        radial-gradient(
-          circle at 10% 0%,
-          rgba(37, 99, 235, 0.16),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(37, 99, 235, 0.12),
-          transparent 25%
-        ),
-        #020617;
-    }
-
-    body.dark .header {
-      background: rgba(2, 6, 23, 0.78);
-      border-bottom-color: rgba(30, 41, 59, 0.9);
-    }
-
-    body.dark .theme-toggle {
-      background: #0f172a;
-      border-color: #1e293b;
-      color: #f8fafc;
-    }
-
-    body.dark .update-badge {
-      background: rgba(30, 41, 59, 0.75);
-    }
-
-    body.dark .answer {
-      background: rgba(37, 99, 235, 0.10);
-    }
-
-    body.dark .voice-wrapper {
-      background: #0f172a;
+    .updated {
+      color: var(--text-muted);
+      font-size: 12px;
     }
 
     /* =========================
        RESPONSIVE
     ========================= */
 
-    @media (max-width: 700px) {
-      .header-inner {
-        width: min(100% - 24px, 1100px);
-        min-height: 64px;
-      }
-
-      .brand {
-        font-size: 16px;
-      }
-
-      .brand-mark {
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
-      }
-
-      .update-badge {
-        display: none;
-      }
-
-      .hero {
-        width: min(100% - 28px, 1000px);
-        padding: 65px 0 45px;
-      }
-
-      .hero h1 {
-        font-size: clamp(38px, 12vw, 55px);
-      }
-
-      .hero-description {
-        font-size: 15px;
-      }
-
-      main {
+    @media (max-width: 640px) {
+      .header-inner,
+      main,
+      .footer-inner {
         width: min(100% - 28px, 900px);
       }
 
-      .section-heading h2 {
-        font-size: 21px;
+      .header-inner {
+        min-height: 68px;
       }
 
-      .exercise-card {
+      .brand-subtitle,
+      .status {
+        display: none;
+      }
+
+      main {
+        padding: 48px 0 60px;
+      }
+
+      .hero {
+        margin-bottom: 34px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .homework-card {
         border-radius: 18px;
-        padding: 22px 18px;
       }
 
-      .question-title {
-        font-size: 16px;
+      .card-header {
+        padding: 20px;
+      }
+
+      .content {
+        padding: 27px 20px;
+      }
+
+      .exercise-title {
+        font-size: 22px;
+      }
+
+      .question-text {
+        font-size: 15px;
       }
 
       .answer {
         font-size: 14px;
       }
 
-      .voice-card {
-        padding: 10px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .hero h1 {
-        font-size: 39px;
+      .voice-section {
+        padding: 25px 20px;
       }
 
-      .section-heading {
-        gap: 10px;
-      }
-
-      .section-number {
-        width: 36px;
-        height: 36px;
-      }
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      * {
-        transition: none !important;
+      .footer-inner {
+        min-height: 100px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="page">
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-  <header class="header">
-    <div class="header-inner">
-
-      <a href="#" class="brand" aria-label="Nam Anh Studio">
-        <span class="brand-mark">N</span>
-        <span>Nam Anh Studio</span>
-      </a>
-
-      <div class="header-actions">
-        <span class="update-badge">Update 18/09/2026</span>
-
-        <button
-          class="theme-toggle"
-          id="themeToggle"
-          type="button"
-          aria-label="Toggle dark mode"
-          title="Toggle dark mode"
-        >
-          ☾
-        </button>
-      </div>
-
-    </div>
-  </header>
-
-
-  <!-- =========================
-       HERO
-  ========================== -->
-  <section class="hero">
-
-    <div class="eyebrow">
-      <span class="eyebrow-dot"></span>
-      Homework
-    </div>
-
-    <h1>
-      Homework <span>Eric</span><br />
-      27/8/26
-    </h1>
-
-    <p class="hero-description">
-      Exercise 1 &amp; Exercise voice
-    </p>
-
-  </section>
-
-
-  <!-- =========================
-       MAIN CONTENT
-  ========================== -->
-  <main>
-
-    <!-- Exercise 1 -->
-    <section class="section">
-
-      <div class="section-heading">
-        <div class="section-number">01</div>
-        <h2>Exercise 1</h2>
-      </div>
-
-      <div class="exercise-card">
-
-        <!-- Question 1 -->
-        <div class="question">
-
-          <div class="question-title">
-            <strong>Question 1:</strong>
-            <em>Why did Sara choose the topic word sun?</em>
-          </div>
-
-          <div class="answer">
-            <span class="answer-label">Answer</span>
-            Because she loves the warm sun
-          </div>
-
-        </div>
-
-
-        <!-- Question 2 -->
-        <div class="question">
-
-          <div class="question-title">
-            <strong>Question 2:</strong>
-            <em>
-              What is the sun doing in the poem that friends often do?
-            </em>
-          </div>
-
-          <div class="answer">
-            <span class="answer-label">Answer</span>
-            "smiling" for her (liek a friend)
-          </div>
-
-        </div>
-
-
-        <!-- Question 3 -->
-        <div class="question">
-
-          <div class="question-title">
-            <strong>Question 3:</strong>
-            <em>What kind of day is a happy day for Sara?</em>
-          </div>
-
-          <div class="answer">
-            <span class="answer-label">Answer</span>
-            A sunny day
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- Exercise Voice -->
-    <section class="section">
-
-      <div class="section-heading">
-        <div class="section-number">02</div>
-        <h2>Exercise voice</h2>
-      </div>
-
-      <div class="exercise-card voice-card">
-
-        <div class="voice-wrapper">
-          <iframe
-            loading="lazy"
-            src="https://www.canva.com/design/DAHVjnz7ssg/k6Qf5iRpOpLuT68ULuKMJA/watch?embed"
-            allowfullscreen="allowfullscreen"
-            allow="fullscreen"
-            title="Homework voice Eric 18/9"
-          ></iframe>
-        </div>
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
 
         <a
-          class="voice-link"
-          href="https://www.canva.com/design/DAHVjnz7ssg/k6Qf5iRpOpLuT68ULuKMJA/watch?utm_content=DAHVjnz7ssg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+          class="brand"
+          href="https://namanhstudio.vercel.app"
           target="_blank"
           rel="noopener"
         >
-          ↗ Homework voice Eric 18/9
+          <img
+            class="brand-icon"
+            src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png"
+            alt="Nam Anh Studio"
+          />
+
+          <div>
+            <div class="brand-name">Nam Anh Studio</div>
+            <div class="brand-subtitle">Homework Page</div>
+          </div>
         </a>
 
-        <p class="voice-credit">
-          Designed by Nam Anh Studio
-        </p>
+        <div class="status">
+          <span class="status-dot"></span>
+          Homework
+        </div>
 
       </div>
+    </header>
 
-    </section>
+    <!-- MAIN CONTENT -->
+    <main>
 
-  </main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="eyebrow">
+          Homework
+        </div>
 
+        <h1>
+          Homework Eric <span>27/8/26</span>
+        </h1>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-  <footer>
-    © Nam Anh Studio —
-    <a
-      href="https://namanhstudio.vercel.app"
-      target="_blank"
-      rel="noopener"
-    >
-      namanhstudio.vercel.app
-    </a>
-  </footer>
+        <p class="hero-description">
+          Exercise and voice homework by Eric.
+        </p>
+      </section>
 
+      <!-- HOMEWORK -->
+      <section class="homework-card">
 
-  <!-- =========================
-       DARK MODE SCRIPT
-  ========================== -->
-  <script>
-    const body = document.body;
-    const themeToggle = document.getElementById("themeToggle");
+        <div class="card-header">
+          <h2>Exercise 1</h2>
+          <span class="exercise-number">Exercise 01</span>
+        </div>
 
-    const savedTheme = localStorage.getItem("homework-theme");
+        <div class="content">
 
-    if (savedTheme === "dark") {
-      body.classList.add("dark");
-      themeToggle.textContent = "☀";
-    }
+          <h3 class="exercise-title">
+            Exercise 1 :
+          </h3>
 
-    themeToggle.addEventListener("click", () => {
-      body.classList.toggle("dark");
+          <!-- QUESTION 1 -->
+          <div class="question">
+            <div class="question-label">Question 1</div>
 
-      const isDark = body.classList.contains("dark");
+            <div class="question-text">
+              Why did Sara choose the topic word sun?
+            </div>
 
-      themeToggle.textContent = isDark ? "☀" : "☾";
+            <div class="answer">
+              <strong>Answer:</strong> Because she loves the warm sun
+            </div>
+          </div>
 
-      localStorage.setItem(
-        "homework-theme",
-        isDark ? "dark" : "light"
-      );
-    });
-  </script>
+          <!-- QUESTION 2 -->
+          <div class="question">
+            <div class="question-label">Question 2</div>
 
+            <div class="question-text">
+              What is the sun doing in the poem that friends often do?
+            </div>
+
+            <div class="answer">
+              <strong>Answer:</strong> "smiling" for her (liek a friend)
+            </div>
+          </div>
+
+          <!-- QUESTION 3 -->
+          <div class="question">
+            <div class="question-label">Question 3</div>
+
+            <div class="question-text">
+              What kind of day is a happy day for Sara?
+            </div>
+
+            <div class="answer">
+              <strong>Answer:</strong> A sunny day
+            </div>
+          </div>
+
+        </div>
+
+        <!-- VOICE -->
+        <div class="voice-section">
+
+          <div class="voice-heading">
+            <h2>Exercise voice :</h2>
+            <p>Homework voice Eric 18/9</p>
+          </div>
+
+          <div class="canva-wrapper">
+            <iframe
+              loading="lazy"
+              src="https://www.canva.com/design/DAHVjnz7ssg/k6Qf5iRpOpLuT68ULuKMJA/watch?embed"
+              allowfullscreen="allowfullscreen"
+              allow="fullscreen"
+              title="Homework voice Eric 18/9"
+            >
+            </iframe>
+          </div>
+
+          <a
+            class="voice-link"
+            href="https://www.canva.com/design/DAHVjnz7ssg/k6Qf5iRpOpLuT68ULuKMJA/watch?utm_content=DAHVjnz7ssg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+            Open Homework voice Eric 18/9 ↗
+          </a>
+
+          <div class="designed-by">
+            Designed by <strong>Nam Anh Studio</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+
+        <div class="copyright">
+          © <a
+            href="https://namanhstudio.vercel.app"
+            target="_blank"
+            rel="noopener"
+          >Nam Anh Studio</a>
+        </div>
+
+        <div class="updated">
+          Update 18/09/2026
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
 </body>
 </html>
