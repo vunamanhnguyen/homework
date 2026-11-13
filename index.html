@@ -3,1653 +3,405 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Homework Eric — English homework assignment, 13 / 11 / 2026.">
+  <title>Homework Eric — 13 / 11 / 2026</title>
 
-  <title>English Homework — Portfolio</title>
-
-  <meta name="description" content="English homework presentation">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================================================
-       PREMIUM DARK — DESIGN SYSTEM
-    ========================================================= */
-
     :root {
-      --bg: #050505;
-      --bg-2: #080808;
-      --surface: rgba(255, 255, 255, 0.045);
-      --surface-hover: rgba(255, 255, 255, 0.07);
-
-      --white: #ffffff;
-      --white-soft: #eeeeee;
-      --gray: #8b8b8b;
-      --gray-dark: #555555;
-
-      --border: rgba(255, 255, 255, 0.11);
-      --border-hover: rgba(255, 255, 255, 0.22);
-
-      --radius: 24px;
-
-      --max-width: 1320px;
-
-      --shadow:
-        0 30px 100px rgba(0, 0, 0, 0.5);
-
-      --ease: cubic-bezier(.22, 1, .36, 1);
+      color-scheme: dark;
+      --black: #050505;
+      --surface: #0d0d0d;
+      --surface-raised: #111111;
+      --surface-soft: #151515;
+      --white: #f7f7f7;
+      --muted: #929292;
+      --subtle: #5f5f5f;
+      --line: #262626;
+      --line-strong: #383838;
+      --radius-lg: 22px;
+      --radius-md: 15px;
+      --content-width: 1080px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
+      background: var(--black);
     }
 
     body {
-      min-height: 100vh;
-
+      margin: 0;
+      min-width: 320px;
       background:
-        radial-gradient(
-          circle at 50% -20%,
-          rgba(255,255,255,.08),
-          transparent 35%
-        ),
-        var(--bg);
-
+        radial-gradient(ellipse at 50% -18%, rgba(255,255,255,.075), transparent 42%),
+        var(--black);
       color: var(--white);
-
-      font-family:
-        Inter,
-        ui-sans-serif,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
+      font-family: "DM Sans", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-
-      overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
+    a { color: inherit; }
 
-      position: fixed;
-      inset: 0;
-
-      pointer-events: none;
-      z-index: 9999;
-
-      opacity: .035;
-
-      background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+    .site-shell {
+      width: min(calc(100% - 48px), var(--content-width));
+      margin: 0 auto;
     }
 
-    ::selection {
-      background: white;
-      color: black;
+    .site-header {
+      padding: 34px 0 31px;
+      border-bottom: 1px solid var(--line);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-
-    /* =========================================================
-       SCROLLBAR
-    ========================================================= */
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #050505;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #333;
-      border-radius: 99px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-
-
-    /* =========================================================
-       NAVIGATION
-    ========================================================= */
-
-    .navbar {
-      position: fixed;
-
-      top: 18px;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      width: min(
-        calc(100% - 36px),
-        1180px
-      );
-
-      height: 64px;
-
+    .header-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-
-      padding: 0 10px 0 22px;
-
-      background: rgba(10, 10, 10, .72);
-
-      border: 1px solid var(--border);
-
-      border-radius: 100px;
-
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-
-      box-shadow:
-        0 15px 50px rgba(0,0,0,.35);
-
-      z-index: 1000;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-
-      font-size: 13px;
-      font-weight: 800;
-
-      letter-spacing: .02em;
+      gap: 22px;
     }
 
     .brand-mark {
-      width: 30px;
-      height: 30px;
-
       display: grid;
       place-items: center;
-
-      border-radius: 50%;
-
-      background: white;
-      color: black;
-
-      font-size: 11px;
-      font-weight: 900;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-
-      list-style: none;
-    }
-
-    .nav-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      min-width: 42px;
-      height: 42px;
-
-      padding: 0 14px;
-
-      border-radius: 100px;
-
-      color: #8c8c8c;
-
-      font-size: 11px;
-      font-weight: 800;
-
-      letter-spacing: .08em;
-
-      transition:
-        color .3s var(--ease),
-        background .3s var(--ease);
-    }
-
-    .nav-links a:hover {
-      color: white;
-      background: rgba(255,255,255,.07);
-    }
-
-
-    /* =========================================================
-       HERO
-    ========================================================= */
-
-    .hero {
-      position: relative;
-
-      min-height: 100vh;
-
-      display: flex;
-      align-items: center;
-
+      flex: 0 0 58px;
+      width: 58px;
+      height: 58px;
+      padding: 7px;
       overflow: hidden;
-
-      padding:
-        150px
-        max(7vw, 30px)
-        110px;
+      border: 1px solid var(--line-strong);
+      border-radius: 16px;
+      background: #fff;
     }
 
-    .hero-glow {
-      position: absolute;
-
-      width: 700px;
-      height: 700px;
-
-      top: -350px;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,255,255,.09),
-          transparent 65%
-        );
-
-      filter: blur(20px);
-
-      pointer-events: none;
+    .brand-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
-    .hero-grid {
-      position: absolute;
-      inset: 0;
+    .header-copy { min-width: 0; }
 
-      opacity: .055;
-
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.4) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.4) 1px,
-          transparent 1px
-        );
-
-      background-size: 80px 80px;
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black,
-          transparent 80%
-        );
-
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-
-      width: min(
-        100%,
-        var(--max-width)
-      );
-
-      margin: auto;
-    }
-
-    .hero-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      margin-bottom: 35px;
-
-      color: #8a8a8a;
-
-      font-size: 11px;
-      font-weight: 800;
-
-      letter-spacing: .18em;
+    .eyebrow {
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      line-height: 1.4;
       text-transform: uppercase;
     }
 
-    .hero-dot {
-      width: 7px;
-      height: 7px;
+    h1, h2, h3, p { margin-top: 0; }
 
-      border-radius: 50%;
-
-      background: white;
-
-      box-shadow:
-        0 0 15px rgba(255,255,255,.8);
+    h1 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(27px, 4vw, 37px);
+      font-weight: 600;
+      letter-spacing: -.055em;
+      line-height: 1.15;
     }
 
-    .hero h1 {
-      max-width: 1050px;
-
-      font-size:
-        clamp(
-          70px,
-          12vw,
-          175px
-        );
-
-      line-height: .83;
-
-      letter-spacing: -.085em;
-
-      font-weight: 900;
+    .header-date {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .035em;
     }
 
-    .hero h1 span {
-      display: block;
-    }
+    main { padding: 46px 0 76px; }
 
-    .hero h1 .outline {
-      color: transparent;
-
-      -webkit-text-stroke:
-        1px rgba(255,255,255,.55);
-    }
-
-    .hero-bottom {
-      margin-top: 65px;
-
+    .section-heading {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-
-      gap: 50px;
+      gap: 18px;
+      margin-bottom: 19px;
     }
 
-    .hero-description {
-      max-width: 470px;
-
-      color: #888;
-
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .hero-index {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-
-      color: #666;
-
+    .section-kicker {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
       font-size: 10px;
-      font-weight: 800;
-
-      letter-spacing: .16em;
+      font-weight: 700;
+      letter-spacing: .19em;
       text-transform: uppercase;
     }
 
-    .hero-index-line {
-      width: 55px;
-      height: 1px;
-
-      background: #444;
-    }
-
-
-    /* =========================================================
-       CONTENT
-    ========================================================= */
-
-    .content {
-      position: relative;
-
-      border-top: 1px solid var(--border);
-    }
-
-    .section {
-      width: min(
-        calc(100% - 60px),
-        var(--max-width)
-      );
-
-      margin: auto;
-
-      padding: 150px 0;
-    }
-
-    .section + .section {
-      border-top: 1px solid var(--border);
-    }
-
-    .section-header {
-      display: grid;
-
-      grid-template-columns:
-        100px
-        1fr;
-
-      gap: 50px;
-
-      margin-bottom: 70px;
+    h2 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(21px, 3vw, 27px);
+      font-weight: 600;
+      letter-spacing: -.045em;
+      line-height: 1.25;
     }
 
     .section-number {
-      color: #555;
-
-      font-size: 11px;
-      font-weight: 900;
-
-      letter-spacing: .15em;
-    }
-
-    .section-heading {
-      max-width: 800px;
-
-      font-size:
-        clamp(
-          42px,
-          6vw,
-          82px
-        );
-
-      line-height: .95;
-
-      letter-spacing: -.065em;
-
-      font-weight: 800;
-    }
-
-    .section-heading small {
-      display: block;
-
-      margin-bottom: 18px;
-
-      color: #666;
-
-      font-size: 10px;
-
-      font-weight: 900;
-
-      letter-spacing: .2em;
-
-      text-transform: uppercase;
-    }
-
-
-    /* =========================================================
-       EXERCISE 1
-    ========================================================= */
-
-    .sentences {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 12px;
-    }
-
-    .sentence {
-      position: relative;
-
-      min-height: 190px;
-
-      padding: 30px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.065),
-          rgba(255,255,255,.025)
-        );
-
-      border: 1px solid var(--border);
-
-      border-radius: var(--radius);
-
-      transition:
-        transform .45s var(--ease),
-        border-color .45s var(--ease),
-        background .45s var(--ease);
-    }
-
-    .sentence::after {
-      content: "";
-
-      position: absolute;
-
-      width: 150px;
-      height: 150px;
-
-      right: -80px;
-      bottom: -90px;
-
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border: 1px solid var(--line-strong);
       border-radius: 50%;
-
-      background: rgba(255,255,255,.06);
-
-      filter: blur(25px);
-
-      transition:
-        transform .5s var(--ease);
+      color: #c8c8c8;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
     }
 
-    .sentence:hover {
-      transform: translateY(-5px);
-
-      border-color: var(--border-hover);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.085),
-          rgba(255,255,255,.035)
-        );
+    .panel {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255,255,255,.025), transparent 42%), var(--surface);
+      box-shadow: 0 18px 55px rgba(0,0,0,.22);
     }
 
-    .sentence:hover::after {
-      transform: scale(1.5);
-    }
-
-    .sentence-number {
-      color: #555;
-
-      font-size: 10px;
-      font-weight: 900;
-
-      letter-spacing: .15em;
-    }
-
-    .sentence-text {
-      position: relative;
-      z-index: 2;
-
-      max-width: 560px;
-
-      color: #e7e7e7;
-
-      font-size: 18px;
-
-      line-height: 1.55;
-
-      letter-spacing: -.015em;
-    }
-
-
-    /* =========================================================
-       EXERCISE 2
-    ========================================================= */
-
-    .writing-container {
-      display: grid;
-
-      grid-template-columns:
-        1fr 1.8fr;
-
-      gap: 12px;
-    }
-
-    .question-card,
-    .answer-card {
-      border: 1px solid var(--border);
-
-      border-radius: var(--radius);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.02)
-        );
-    }
-
-    .question-card {
-      padding: 45px;
-
-      min-height: 450px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .label {
-      color: #555;
-
-      font-size: 10px;
-      font-weight: 900;
-
-      letter-spacing: .18em;
-
-      text-transform: uppercase;
-    }
-
-    .question {
-      font-size:
-        clamp(
-          30px,
-          4vw,
-          54px
-        );
-
-      line-height: 1.05;
-
-      letter-spacing: -.05em;
-
-      font-weight: 800;
-    }
-
-    .answer-card {
-      padding: 55px;
-
-      display: flex;
-      align-items: center;
-    }
-
-    .answer {
-      color: #d5d5d5;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        clamp(
-          21px,
-          2.2vw,
-          30px
-        );
-
-      line-height: 1.8;
-    }
-
-
-    /* =========================================================
-       EXERCISE 3
-    ========================================================= */
-
-    .acrostic-layout {
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap: 12px;
-    }
-
-    .acrostic-card,
-    .reflection-card {
-      border: 1px solid var(--border);
-
-      border-radius: var(--radius);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.02)
-        );
-    }
-
-    .acrostic-card {
-      padding: 50px;
-    }
-
-    .acrostic-line {
-      display: flex;
-      align-items: baseline;
-
-      gap: 20px;
-
-      padding: 14px 0;
-
-      border-bottom: 1px solid rgba(255,255,255,.07);
-
-      font-size:
-        clamp(
-          27px,
-          3.5vw,
-          44px
-        );
-
-      line-height: 1.25;
-
-      letter-spacing: -.045em;
-    }
-
-    .acrostic-line:last-child {
-      border-bottom: 0;
-    }
-
-    .acrostic-letter {
-      width: 45px;
-
-      color: white;
-
-      font-weight: 900;
-    }
-
-    .acrostic-word {
-      color: #d0d0d0;
-    }
-
-    .reflection-card {
-      min-height: 100%;
-
-      padding: 50px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .reflection {
-      max-width: 570px;
-
-      color: #d1d1d1;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        clamp(
-          22px,
-          2.5vw,
-          32px
-        );
-
-      line-height: 1.7;
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    footer {
-      width: min(
-        calc(100% - 60px),
-        var(--max-width)
-      );
-
-      margin: auto;
-
-      padding: 35px 0 50px;
-
+    .panel-topline {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
+      padding: 17px 23px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.015);
+    }
 
-      border-top: 1px solid var(--border);
-
-      color: #555;
-
+    .panel-label {
+      margin: 0;
+      color: #d8d8d8;
       font-size: 11px;
-
-      font-weight: 800;
-
-      letter-spacing: .1em;
-
+      font-weight: 700;
+      letter-spacing: .15em;
       text-transform: uppercase;
     }
 
-    .footer-brand {
-      color: #888;
+    .panel-index {
+      color: var(--subtle);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 11px;
+      letter-spacing: .08em;
     }
 
-
-    /* =========================================================
-       REVEAL ANIMATION
-    ========================================================= */
-
-    .reveal {
-      opacity: 0;
-
-      transform:
-        translateY(35px);
-
-      transition:
-        opacity .9s var(--ease),
-        transform .9s var(--ease);
+    .lesson-content {
+      padding: 27px 30px 30px;
     }
 
-    .reveal.visible {
-      opacity: 1;
-
-      transform:
-        translateY(0);
+    .lesson-content p {
+      margin: 0;
+      color: #d4d4d4;
+      font-size: 15px;
+      line-height: 1.95;
     }
 
+    .lesson-content p + p { margin-top: 20px; }
 
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-
-    @media (max-width: 900px) {
-
-      .hero {
-        padding-top: 140px;
-      }
-
-      .hero-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .section-header {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-      .writing-container,
-      .acrostic-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .question-card {
-        min-height: 300px;
-      }
+    strong {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: #777;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
     }
 
+    .exercise-two { margin-top: 52px; }
 
-    @media (max-width: 650px) {
+    .vocabulary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+    }
 
-      .navbar {
-        top: 10px;
+    .vocabulary-card {
+      min-width: 0;
+      padding: 23px 25px 25px;
+      background: var(--surface);
+      transition: background .2s ease;
+    }
 
-        width: calc(100% - 20px);
+    .vocabulary-card:hover { background: var(--surface-raised); }
 
-        height: 58px;
+    .vocabulary-word {
+      display: inline-block;
+      margin-bottom: 13px;
+      color: #fff;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -.025em;
+    }
 
-        padding-left: 15px;
-      }
+    .vocabulary-sentence {
+      margin: 0;
+      color: #bcbcbc;
+      font-size: 14px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
 
-      .brand {
-        font-size: 11px;
-      }
+    .site-footer {
+      padding: 20px 0 30px;
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
+      font-size: 11px;
+      letter-spacing: .04em;
+      text-align: center;
+    }
 
+    @media (max-width: 640px) {
+      .site-shell { width: min(calc(100% - 32px), var(--content-width)); }
+      .site-header { padding: 23px 0; }
+      .header-inner { gap: 15px; }
       .brand-mark {
-        width: 27px;
-        height: 27px;
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+        border-radius: 14px;
       }
+      main { padding: 34px 0 54px; }
+      .section-heading { margin-bottom: 15px; }
+      .panel-topline { padding: 15px 17px; }
+      .lesson-content { padding: 21px 19px 24px; }
+      .lesson-content p { font-size: 14px; line-height: 1.9; }
+      .lesson-content p + p { margin-top: 17px; }
+      .exercise-two { margin-top: 39px; }
+      .vocabulary-grid { grid-template-columns: 1fr; }
+      .vocabulary-card { padding: 19px 20px 21px; }
+      .vocabulary-word { margin-bottom: 8px; }
+    }
 
-      .nav-links a {
-        min-width: 35px;
-        height: 35px;
-
-        padding: 0 9px;
-
-        font-size: 9px;
-      }
-
-      .hero {
-        min-height: 100svh;
-
-        padding:
-          130px
-          25px
-          80px;
-      }
-
-      .hero h1 {
-        font-size:
-          clamp(
-            65px,
-            20vw,
-            120px
-          );
-      }
-
-      .hero-description {
-        font-size: 14px;
-      }
-
-      .section {
-        width: calc(100% - 30px);
-
-        padding: 90px 0;
-      }
-
-      .section-heading {
-        font-size: 46px;
-      }
-
-      .sentences {
-        grid-template-columns: 1fr;
-      }
-
-      .sentence {
-        min-height: 160px;
-        padding: 25px;
-      }
-
-      .sentence-text {
-        font-size: 16px;
-      }
-
-      .question-card,
-      .answer-card,
-      .acrostic-card,
-      .reflection-card {
-        padding: 30px;
-      }
-
-      .question {
-        font-size: 32px;
-      }
-
-      .answer,
-      .reflection {
-        font-size: 20px;
-      }
-
-      .acrostic-line {
-        gap: 13px;
-        font-size: 27px;
-      }
-
-      .acrostic-letter {
-        width: 30px;
-      }
-
-      footer {
-        width: calc(100% - 30px);
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 12px;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
 
-
 <body>
-
-
-  <!-- =======================================================
-       NAVBAR
-  ======================================================== -->
-
-  <nav class="navbar">
-
-    <a href="#" class="brand">
-
-      <span class="brand-mark">
-        E
-      </span>
-
-      <span>
-        ENGLISH HOMEWORK
-      </span>
-
-    </a>
-
-
-    <ul class="nav-links">
-
-      <li>
-        <a href="#exercise-1">01</a>
-      </li>
-
-      <li>
-        <a href="#exercise-2">02</a>
-      </li>
-
-      <li>
-        <a href="#exercise-3">03</a>
-      </li>
-
-    </ul>
-
-  </nav>
-
-
-  <!-- =======================================================
-       HERO
-  ======================================================== -->
-
-  <header class="hero">
-
-    <div class="hero-glow"></div>
-
-    <div class="hero-grid"></div>
-
-
-    <div class="hero-content">
-
-      <div class="hero-meta">
-
-        <span class="hero-dot"></span>
-
-        English Homework
-
+  <header class="site-header">
+    <div class="site-shell header-inner">
+      <a class="brand-mark" href="#" aria-label="Accueil">
+        <img
+          src="https://logo-namanhstudio.weebly.com/uploads/1/5/5/3/155356283/dark-mode-icon_orig.png"
+          alt="Logo"
+          width="44"
+          height="44"
+        >
+      </a>
+      <div class="header-copy">
+        <p class="eyebrow">English assignment</p>
+        <h1>Homework Eric</h1>
+        <p class="header-date">13 / 11 / 2026</p>
       </div>
-
-
-      <h1>
-
-        <span>MY</span>
-
-        <span class="outline">
-          HOMEWORK.
-        </span>
-
-      </h1>
-
-
-      <div class="hero-bottom">
-
-        <p class="hero-description">
-          Three English exercises — sentences,
-          writing and an acrostic poem.
-        </p>
-
-
-        <div class="hero-index">
-
-          <span class="hero-index-line"></span>
-
-          03 Exercises
-
-        </div>
-
-      </div>
-
     </div>
-
   </header>
 
-
-
-  <!-- =======================================================
-       CONTENT
-  ======================================================== -->
-
-  <main class="content">
-
-
-    <!-- =====================================================
-         EXERCISE 01
-    ====================================================== -->
-
-    <section
-      class="section reveal"
-      id="exercise-1"
-    >
-
-      <div class="section-header">
-
-        <div class="section-number">
-          01 / 03
+  <main class="site-shell">
+    <section aria-labelledby="exercise-one-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Exercise 01</span>
+          <h2 id="exercise-one-title">Exercise 1: Complete sentences</h2>
         </div>
-
-        <h2 class="section-heading">
-
-          <small>
-            Exercise 01
-          </small>
-
-          Make a sentence<br>
-          with word
-
-        </h2>
-
+        <span class="section-number" aria-hidden="true">01</span>
       </div>
 
-
-      <div class="sentences">
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            01
-          </span>
-
-          <p class="sentence-text">
-            I can’t choose my class in school
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            02
-          </span>
-
-          <p class="sentence-text">
-            I chose to become a footballeur when I has 10 year old
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            03
-          </span>
-
-          <p class="sentence-text">
-            I don’s have chosen my job in future
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            04
-          </span>
-
-          <p class="sentence-text">
-            I illustrate my dream car
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            05
-          </span>
-
-          <p class="sentence-text">
-            I don’t like recite poems
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            06
-          </span>
-
-          <p class="sentence-text">
-            I explain exercise for my sister
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            07
-          </span>
-
-          <p class="sentence-text">
-            The sun shine
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            08
-          </span>
-
-          <p class="sentence-text">
-            I have a chess project at school
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            09
-          </span>
-
-          <p class="sentence-text">
-            Scuba diving is difficult for me
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            10
-          </span>
-
-          <p class="sentence-text">
-            I haves never snorkle
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            11
-          </span>
-
-          <p class="sentence-text">
-            What is the class topic today ?
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            12
-          </span>
-
-          <p class="sentence-text">
-            School is amazing
-          </p>
-
-        </article>
-
-
-        <article class="sentence">
-
-          <span class="sentence-number">
-            13
-          </span>
-
-          <p class="sentence-text">
-            I stand next to board for do exercise in class
-          </p>
-
-        </article>
-
-
-      </div>
-
+      <article class="panel">
+        <div class="panel-topline">
+          <p class="panel-label">Math Class</p>
+          <span class="panel-index">LESSON / 01</span>
+        </div>
+        <div class="lesson-content">
+          <p>There are 60 <strong>minutes</strong> in an hour. How many <strong>seconds</strong> are there in a minute? Correct. There are 60. How can we calculate the number of seconds in an hour?</p>
+
+          <p>We <strong>multiply</strong> 60 times 60 to get the answer. So there are 3,600 seconds in an <strong>hour</strong>.</p>
+
+          <p>There are 30 or 31 days in most <strong>months</strong>. How many months are there in a <strong>year</strong>? Yes, there are 12. Does anyone know how many time zones there are?</p>
+
+          <p>There are 24 <strong>time zone</strong> , one for each hour of the day. When it's <strong>noon</strong> in New York, what time is it in California? Yes, it's 9:00 a.m . Time for math class!</p>
+        </div>
+      </article>
     </section>
 
-
-
-    <!-- =====================================================
-         EXERCISE 02
-    ====================================================== -->
-
-    <section
-      class="section reveal"
-      id="exercise-2"
-    >
-
-      <div class="section-header">
-
-        <div class="section-number">
-          02 / 03
+    <section class="exercise-two" aria-labelledby="exercise-two-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Exercise 02</span>
+          <h2 id="exercise-two-title">Exercise 2: Make sentences with words</h2>
         </div>
-
-        <h2 class="section-heading">
-
-          <small>
-            Exercise 02
-          </small>
-
-          Write
-
-        </h2>
-
+        <span class="section-number" aria-hidden="true">02</span>
       </div>
 
-
-      <div class="writing-container">
-
-
-        <div class="question-card">
-
-          <span class="label">
-            Question
-          </span>
-
-          <h3 class="question">
-            “Why do people write poems?”
-          </h3>
-
+      <div class="panel">
+        <div class="panel-topline">
+          <p class="panel-label">Vocabulary</p>
+          <span class="panel-index">7 ENTRIES</span>
         </div>
 
+        <div class="vocabulary-grid">
+          <article class="vocabulary-card">
+            <h3 class="vocabulary-word">helpful</h3>
+            <p class="vocabulary-sentence">Your help is helpful for me to finish homework</p>
+          </article>
 
-        <div class="answer-card">
+          <article class="vocabulary-card">
+            <h3 class="vocabulary-word">solstice</h3>
+            <p class="vocabulary-sentence">The summer solstice is the longuest day of year</p>
+          </article>
 
-          <p class="answer">
-            People writes poems for a lot of reasons. Peoples writes poems for share emotions. They can write about family, loves, or nature. Poems make lifes beautiful. When we are sad, we write poems for share emotions. Poems is a way for comunicate with the world
-          </p>
+          <article class="vocabulary-card">
+            <h3 class="vocabulary-word">ad (advertisement)</h3>
+            <p class="vocabulary-sentence">I don’t like advertisement</p>
+          </article>
 
+          <article class="vocabulary-card">
+            <h3 class="vocabulary-word">measure</h3>
+            <p class="vocabulary-sentence">You have to measure the table</p>
+          </article>
+
+          <article class="vocabulary-card">
+            <h3 class="vocabulary-word">word</h3>
+            <p class="vocabulary-sentence">How we pronounce this word</p>
+          </article>
+
+          <article class="vocabulary-card">
+            <h3 class="vocabulary-word">world</h3>
+            <p class="vocabulary-sentence">I like to travel around the world</p>
+          </article>
+
+          <article class="vocabulary-card">
+            <h3 class="vocabulary-word">orbit</h3>
+            <p class="vocabulary-sentence">The moon is in a orbit around the earth</p>
+          </article>
         </div>
-
-
       </div>
-
     </section>
-
-
-
-    <!-- =====================================================
-         EXERCISE 03
-    ====================================================== -->
-
-    <section
-      class="section reveal"
-      id="exercise-3"
-    >
-
-      <div class="section-header">
-
-        <div class="section-number">
-          03 / 03
-        </div>
-
-        <h2 class="section-heading">
-
-          <small>
-            Exercise 03
-          </small>
-
-          Acrostic<br>
-          Poems
-
-        </h2>
-
-      </div>
-
-
-      <div class="acrostic-layout">
-
-
-        <div class="acrostic-card">
-
-
-          <div class="acrostic-line">
-
-            <span class="acrostic-letter">
-              S
-            </span>
-
-            <span class="acrostic-word">
-              tudy
-            </span>
-
-          </div>
-
-
-          <div class="acrostic-line">
-
-            <span class="acrostic-letter">
-              C
-            </span>
-
-            <span class="acrostic-word">
-              lass
-            </span>
-
-          </div>
-
-
-          <div class="acrostic-line">
-
-            <span class="acrostic-letter">
-              H
-            </span>
-
-            <span class="acrostic-word">
-              ome number 2
-            </span>
-
-          </div>
-
-
-          <div class="acrostic-line">
-
-            <span class="acrostic-letter">
-              O
-            </span>
-
-            <span class="acrostic-word">
-              pen every day
-            </span>
-
-          </div>
-
-
-          <div class="acrostic-line">
-
-            <span class="acrostic-letter">
-              O
-            </span>
-
-            <span class="acrostic-word">
-              ur place
-            </span>
-
-          </div>
-
-
-          <div class="acrostic-line">
-
-            <span class="acrostic-letter">
-              L
-            </span>
-
-            <span class="acrostic-word">
-              oves school
-            </span>
-
-          </div>
-
-
-        </div>
-
-
-        <div class="reflection-card">
-
-          <span class="label">
-            My explanation
-          </span>
-
-
-          <p class="reflection">
-            I wrote about school because I really loves school and I am exciting for going to school.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
   </main>
 
-
-
-  <!-- =======================================================
-       FOOTER
-  ======================================================== -->
-
-  <footer>
-
-    <span class="footer-brand">
-      © Homework Eric - Nam Anh Studio
-    </span>
-
-    <span>
-      2026 · <strong>03 Exercises</strong>
-    </span>
-
+  <footer class="site-footer">
+    <div class="site-shell">Homework Eric · 13 / 11 / 2026</div>
   </footer>
 
-
-
-  <!-- =======================================================
-       JAVASCRIPT
-  ======================================================== -->
-
   <script>
-
-    /* -------------------------------------------------------
-       SCROLL REVEAL
-    ------------------------------------------------------- */
-
-    const revealElements =
-      document.querySelectorAll(".reveal");
-
-
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add("visible");
-
-              observer.unobserve(entry.target);
-
-            }
-
-          });
-
-        },
-        {
-          threshold: 0.08
-        }
-      );
-
-
-    revealElements.forEach(element => {
-
-      observer.observe(element);
-
-    });
-
-
-    /* -------------------------------------------------------
-       ACTIVE NAVIGATION
-    ------------------------------------------------------- */
-
-    const sections =
-      document.querySelectorAll("section[id]");
-
-    const navLinks =
-      document.querySelectorAll(".nav-links a");
-
-
-    window.addEventListener(
-      "scroll",
-      () => {
-
-        let current = "";
-
-        sections.forEach(section => {
-
-          const sectionTop =
-            section.offsetTop - 250;
-
-          if (
-            window.scrollY >= sectionTop
-          ) {
-
-            current =
-              section.getAttribute("id");
-
-          }
-
-        });
-
-
-        navLinks.forEach(link => {
-
-          link.style.background = "";
-
-          link.style.color = "";
-
-
-          if (
-            link.getAttribute("href") ===
-            "#" + current
-          ) {
-
-            link.style.background =
-              "rgba(255,255,255,.08)";
-
-            link.style.color =
-              "#fff";
-
-          }
-
-        });
-
-      }
-    );
-
-
-    /* -------------------------------------------------------
-       SMOOTH ANCHOR SCROLL
-    ------------------------------------------------------- */
-
-    document
-      .querySelectorAll('a[href^="#"]')
-      .forEach(link => {
-
-        link.addEventListener(
-          "click",
-          function(event) {
-
-            const target =
-              document.querySelector(
-                this.getAttribute("href")
-              );
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-
-          }
-        );
-
-      });
-
+    // Keep the document ready for progressive enhancements without changing the assignment content.
+    document.documentElement.classList.add("js-ready");
   </script>
-
 </body>
 </html>
